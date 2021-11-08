@@ -1,28 +1,28 @@
 import SearchBar from "../../components/SearchBar.component";
 import React, {useState} from "react";
-import {AppBar, createTheme, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import './home-page.css'
+import PostCard from "../../components/Card.component";
 
 function HomePage(){
     const [postId, setPostId] = useState("");
-    const theme = createTheme({
-        palette: {
-            primary: {
-                light: '#fcc9a4',
-                main: '#4d4d4d',
-                dark: '#88450e',
-                contrastText: '#fff',
-            },
-        },
-    });
+    const [postData, setPostData] = useState({userName: null, title: null, description: null, _id: null});
+
     function HandleChangePostID(e){
         setPostId(e.target.value)
     }
 
     async function FetchPosts(){
-        const res = await fetch("https://noahfreelove-restapi.herokuapp.com/posts/"+postId);
-        console.log(res.json())
+         fetch("https://noahfreelove-restapi.herokuapp.com/posts/"+postId
+        ,{method:"GET"})
+             .then(function(response) {
+                 return response.json();
+             })
+             .then(function(data) {
+                 setPostData(data);
+             })
     }
+
     return(
         <div>
             <Typography sx={{fontFamily:"arial", fontSize: 24, color: "#FFFFFF"}}>Post App</Typography>
@@ -30,6 +30,7 @@ function HomePage(){
                            placeholderSearchText={"Search By Post ID"}
                            handleChange={HandleChangePostID}
                            onClick={FetchPosts}/>
+            <PostCard postData={postData}/>
 
         </div>
     )
