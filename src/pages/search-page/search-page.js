@@ -19,9 +19,9 @@ function SearchPage(){
         let res = await FetchPost(postId)
         if(res === null)
         {
-            res = {userName: "post does not exist",
+            res = {userName: "",
                 description: "this post was deleted",
-                title: "Post not found"
+                title: "Post does not exist"
             }
         }
         setPostData(res);
