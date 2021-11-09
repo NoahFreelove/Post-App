@@ -35,6 +35,18 @@ async function CreatePostReq(PostObj)
     console.log(content);
 }
 
+function DeletePostReq(postId, setDeletedData){
+    return fetch("https://noahfreelove-restapi.herokuapp.com/posts/"+postId
+        ,{method:"DELETE"})
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            setDeletedData(data.deleted)
+            return data.deleted
+        })
+}
+
 function MapToArray (newMap) {
     let count = 0
 
@@ -50,4 +62,4 @@ function MapToArray (newMap) {
 }
 
 
-export {FetchPost, FetchAllPosts, CreatePostReq}
+export {FetchPost, FetchAllPosts, CreatePostReq, DeletePostReq}

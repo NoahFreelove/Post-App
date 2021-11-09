@@ -4,6 +4,7 @@ import SearchPage from './pages/search-page/search-page'
 import {AppBar, Button, Typography} from "@mui/material";
 import ListPage from "./pages/list-page/list-page";
 import CreatePost from "./pages/create-post/create-post";
+import DeletePost from "./pages/delete-post/delete-post";
 function App() {
 
 let navigate = useNavigate();
@@ -27,6 +28,10 @@ function GoToCreate()
     navigate('/create')
 }
 
+function GoToDelete()
+{
+    navigate('/delete')
+}
 
 return (
       <Fragment>
@@ -67,6 +72,12 @@ return (
                           <Button style={{backgroundColor:"#5bd540"}} onClick={GoToCreate} variant={"contained"}>Create</Button>
                       </div>
 
+                      <div style={{textAlign:"center", margin:"15px"}}>
+                          <Typography sx={{fontFamily:"arial", fontSize: 18, color: "#a9a9a9"}}>
+                              Delete a post
+                          </Typography>
+                          <Button style={{backgroundColor:"#d54040"}} onClick={GoToDelete} variant={"contained"}>Delete</Button>
+                      </div>
                   </div>
               }/>
 
@@ -74,12 +85,16 @@ return (
                         <ListPage/>
                   }/>
 
-                    <Route exact path={"/search"} element={
-                         <SearchPage/>
-                    }/>
+                  <Route exact path={"/search"} element={
+                      <SearchPage/>
+                  }/>
 
                   <Route exact path={"/create"} element={
                       <CreatePost/>
+                  }/>
+
+                  <Route exact path={"/delete"} element={
+                      <DeletePost/>
                   }/>
 
           </Routes>
