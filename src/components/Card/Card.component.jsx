@@ -4,11 +4,11 @@ const PostCard = (props) => {
     return(
         <div>
             {props.postData.userName === undefined || props.postData.userName === null ?
-                <Typography variant="h5" color={"#ff0000"} component="div">
-                    No Post Found
+                <Typography variant="h6" color={"#ff0000"} component="div">
+                    Post Not Found
                 </Typography>
                 :
-                <Card sx={{minWidth: 275, backgroundColor:"#494949", color:"#ffffff"}}>
+                <Card sx={{margin:"15px", minWidth: 275, backgroundColor:"#494949", color:"#ffffff"}}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                             {props.postData.title}
@@ -21,9 +21,6 @@ const PostCard = (props) => {
                             <br/>
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
                 </Card>
             }
         </div>

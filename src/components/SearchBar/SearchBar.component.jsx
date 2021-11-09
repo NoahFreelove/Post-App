@@ -5,7 +5,7 @@ const SearchBar = (props) =>{
     return(
         <div>
             <Input  placeholder={props.placeholderSearchText} style={{margin: "5px", color:"#FFFFFF", backgroundColor: "#383838"}} onChange={props.handleChange}/>
-            <Button variant={"contained"} onClick={props.onClick}>{props.buttonText}</Button>
+            <Button sx={{backgroundColor:"#d58b40"}} variant={"contained"} onClick={props.onClick}>{props.buttonText}</Button>
         </div>
     )
 }
