@@ -7,7 +7,7 @@ import {FetchPost} from "../../APIHandler";
 
 function SearchPage(){
     const [postId, setPostId] = useState("");
-    const [postData, setPostData] = useState({userName: null, title: null, description: null, _id: null});
+    const [postData, setPostData] = useState({userName: "", title: "", description: "", _id: ""});
     const [searching, setSearching] = useState(false);
 
     function HandleChangePostID(e){
@@ -17,6 +17,13 @@ function SearchPage(){
     async function HandleFetchPost() {
         setSearching(true)
         let res = await FetchPost(postId)
+        if(res === null)
+        {
+            res = {userName: "post does not exist",
+                description: "this post was deleted",
+                title: "Post not found"
+            }
+        }
         setPostData(res);
         setSearching(false)
     }
