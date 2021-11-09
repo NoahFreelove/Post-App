@@ -1,6 +1,5 @@
 import SearchBar from "../../components/SearchBar/SearchBar.component";
 import {Typography} from "@mui/material";
-import PostCard from "../../components/Card/Card.component";
 import React, {useState} from "react";
 import {DeletePostReq} from "../../APIHandler";
 

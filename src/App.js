@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import SearchPage from './pages/search-page/search-page'
+import { useNavigate } from 'react-router-dom';
 import {AppBar, Button, Typography} from "@mui/material";
-import ListPage from "./pages/list-page/list-page";
-import CreatePost from "./pages/create-post/create-post";
-import DeletePost from "./pages/delete-post/delete-post";
+
 import Home from "./pages/home-page/home-page";
 function App() {
 
