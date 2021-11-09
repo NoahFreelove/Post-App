@@ -20,6 +20,21 @@ async function FetchAllPosts(setData){
         })
 }
 
+async function CreatePostReq(PostObj)
+{
+    const rawResponse = await fetch("https://noahfreelove-restapi.herokuapp.com/posts/", {
+        method: 'POST',
+        headers: {"Content-type": "application/json;charset=UTF-8"},
+
+        body: JSON.stringify(PostObj
+
+        )
+    });
+    const content = await rawResponse.json();
+
+    console.log(content);
+}
+
 function MapToArray (newMap) {
     let count = 0
 
@@ -35,4 +50,4 @@ function MapToArray (newMap) {
 }
 
 
-export {FetchPost, FetchAllPosts}
+export {FetchPost, FetchAllPosts, CreatePostReq}

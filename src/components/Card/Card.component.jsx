@@ -1,4 +1,4 @@
-import {Button, Card, CardActions, CardContent, Typography} from "@mui/material";
+import { Card, CardContent, Typography} from "@mui/material";
 
 const PostCard = (props) => {
     return(
@@ -20,7 +20,12 @@ const PostCard = (props) => {
                             {props.postData.description}
                             <br/>
                         </Typography>
+
+
                     </CardContent>
+                    <Typography fontSize={10} component="div">
+                        id: {props.postData._id}
+                    </Typography>
                 </Card>
             }
         </div>

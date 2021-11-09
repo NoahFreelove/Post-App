@@ -29,7 +29,7 @@ function ListPage(){
 
     return(
         <div style={{padding:"40px"}}>
-            <Button sx={{backgroundColor:"#d58b40"}} onClick={HandleFetchPost} variant={"contained"}>Download Posts</Button>
+            <Button style={{backgroundColor:"#d58b40", margin:"16px"}} onClick={HandleFetchPost} variant={"contained"}>Download Posts</Button>
             <CardList cardArr={postsData}/>
             {searching ?
                 <Typography color={"#FFFFFF"}>Searching...</Typography>:
