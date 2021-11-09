@@ -10,18 +10,24 @@ function CreatePost()
     const [title, setTitle] = useState("")
 
     const ChangeUsernameHandler = (e) => {
-        setUsername(e.target.value)
+        setUsername(e.target.value);
     }
     const ChangeTitleHandler = (e) => {
-        setTitle(e.target.value)
+        setTitle(e.target.value);
     }
     const ChangeDescriptionHandler = (e) => {
-        setDesc(e.target.value)
+        setDesc(e.target.value);
     }
-    function Submit(){
+
+    function Submit() {
+        if (title === "" || desc === "" || username === "")
+        {
+            return;
+        }
         let obj = {title: title, description: desc, userName: username}
         CreatePostReq(obj)
     }
+
     return(
         <div style={{padding:"40px"}}>
             <CreateCardForm usernameHandler={ChangeUsernameHandler} titleHandler={ChangeTitleHandler} descriptionHandler={ChangeDescriptionHandler}/>

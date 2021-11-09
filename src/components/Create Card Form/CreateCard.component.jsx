@@ -12,7 +12,7 @@ function CreateCardForm(props)
             label="Post Content"
             multiline
             rows={4}
-            defaultValue="Default Value"
+            defaultValue="Description"
             variant={"filled"}
                    onChange={props.descriptionHandler}
         />
